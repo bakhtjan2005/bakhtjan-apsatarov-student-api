@@ -34,3 +34,4 @@ curl http://localhost:8081/api/info
 - Branch `feature/bakhtjan-apsatarov-crud`: improved the READ operation of the CRUD API.
 - Added `GET /api/students/search?name=...` — case-insensitive search by full name.
 - Added an automated test for the new endpoint.
+- Jenkins auto-trigger test (Bakhtjan Apsatarov)
