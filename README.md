@@ -2,6 +2,7 @@
 
 **Author:** Bakhtjan Apsatarov
 Project status: API documentation in progress (Bakhtjan Apsatarov, documentation branch)
+feature/bakhtjan-apsatarov-readme-update
 
 ## Description
 Spring Boot CRUD REST API for managing students. Data is stored in PostgreSQL.
