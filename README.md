@@ -35,3 +35,4 @@ curl http://localhost:8081/api/info
 - Added `GET /api/students/search?name=...` — case-insensitive search by full name.
 - Added an automated test for the new endpoint.
 - Jenkins auto-trigger test (Bakhtjan Apsatarov)
+- Jenkins auto-trigger test (Bakhtjan Apsatarov)
