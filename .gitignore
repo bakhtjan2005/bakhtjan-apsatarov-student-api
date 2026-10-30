@@ -1,0 +1,16 @@
+# Секреты — НИКОГДА не коммитить
+.env
+*.pem
+*.key
+application-local.properties
+
+# Сборка и IDE
+.gradle/
+build/
+out/
+.idea/
+*.iml
+.vscode/
+
+# Логи
+*.log

@@ -1,0 +1,46 @@
+# Персональное имя Compose-проекта
+name: bakhtjan-apsatarov-student-api
+
+services:
+  db:
+    image: postgres:16-alpine
+    container_name: bakhtjan-apsatarov-postgres
+    environment:
+      POSTGRES_DB: ${POSTGRES_DB:-studentdb}
+      POSTGRES_USER: ${POSTGRES_USER:-student}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:?Создайте файл .env (см. .env.example)}
+    volumes:
+      - bakhtjan-apsatarov-pgdata:/var/lib/postgresql/data     # постоянное хранилище данных
+    networks:
+      - bakhtjan-apsatarov-net
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U $${POSTGRES_USER} -d $${POSTGRES_DB}"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+
+  app:
+    build: .
+    image: bakhtjan-apsatarov-student-api:${IMAGE_TAG:-v1.0-bakhtjan-apsatarov}
+    container_name: bakhtjan-apsatarov-student-api
+    depends_on:
+      db:
+        condition: service_healthy
+    environment:
+      # Хост БД — имя сервиса "db", а не localhost
+      DB_URL: jdbc:postgresql://db:5432/${POSTGRES_DB:-studentdb}
+      DB_USER: ${POSTGRES_USER:-student}
+      DB_PASSWORD: ${POSTGRES_PASSWORD}
+      APP_VERSION: ${APP_VERSION:-1.0.0}
+    ports:
+      - "8081:8080"
+    networks:
+      - bakhtjan-apsatarov-net
+    restart: unless-stopped
+
+volumes:
+  bakhtjan-apsatarov-pgdata:
+
+networks:
+  bakhtjan-apsatarov-net:
+    driver: bridge
