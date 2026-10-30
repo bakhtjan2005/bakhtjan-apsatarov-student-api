@@ -1,7 +1,7 @@
 # Bakhtjan Apsatarov — Student API
 
 **Author:** Bakhtjan Apsatarov
-Project status: API documentation in progress (Bakhtjan Apsatarov, documentation branch)
+Project status: ready for review (Bakhtjan Apsatarov, readme-update branch)
 feature/bakhtjan-apsatarov-readme-update
 
 ## Description
